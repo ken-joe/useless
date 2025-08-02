@@ -1,39 +1,34 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# USELESS WEB
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: ERROR 404
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Ken Joe Augustine - AISAT
+- Member 2: Aswin Sreekumar - AISAT
+
 
 ### Project Description
-[2-3 lines about what your project does]
+Useless Web is a parody website filled with intentionally pointless and mildly annoying interactions. It's a playful take on bad UX and absurd design, made purely to confuse, irritate, and amuse.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People are far too productive and sane while browsing the internet. There’s a dire lack of websites that waste time, fry brain cells, and test human patience for absolutely no reason. We're here to fix that.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We built a glorious collection of digital nonsense — from infinite CAPTCHAs to fake logins and demotivational wisdom — all carefully designed to irritate, confuse, and entertain. It’s the internet equivalent of poking your brain with a stick, just because we can.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- HTML, CSS, JavaScript
+-  None (vanilla everything for maximum chaos)
+- None (we handcrafted the absurdity ourselves)]
+- VS Code, ChatGPT, Proplexity
 
 ### Implementation
 For Software:
