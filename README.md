@@ -38,7 +38,7 @@ For Software:
 ![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
 This is the main interface of Useless Web. Each tile represents a completely pointless mini-project — some with toggle switches, others with chaotic effects waiting to be triggered. It's neat now… but it won't stay that way for long.
 
-![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
+![image alt](https://github.com/ken-joe/useless/blob/6dfd17278f4d646847fba4518e6ea0270199f085/Opera%20Snapshot_2025-08-02_221650_ken-joe.github.io.png)
 A closer look at one of the mini-projects: Cat Facts Overload. Once toggled on, the screen fills with random, weird cat facts. It doesn’t stop until you turn it off. Why? No reason — that's the whole point.
 
 ![image alt](https://github.com/ken-joe/useless/blob/af447f3f92d0607a6ba9915137ad83bb9512733c/Opera%20Snapshot_2025-08-02_221547_ken-joe.github.io.png)
@@ -46,9 +46,9 @@ Here's what happens when you turn everything on. Fonts keep swapping, colors go 
 
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Ken Joe: Contributed to brainstorming and feature ideation, built core JavaScript functionalities, styled the UI components, and helped design the interactive behavior of each mini-project.
+- Aswin Sreekumar: Co-led brainstorming sessions, implemented interactive effects and animations, refined UI layout and responsiveness, and assisted in testing and debugging across all features.
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
