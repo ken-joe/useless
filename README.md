@@ -34,7 +34,7 @@ For Software:
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
+# Screenshots 
 ![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
 This is the main interface of Useless Web. Each tile represents a completely pointless mini-project — some with toggle switches, others with chaotic effects waiting to be triggered. It's neat now… but it won't stay that way for long.
 
