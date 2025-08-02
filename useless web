@@ -1,232 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Useless Mini Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: linear-gradient(to bottom right, #f3f4f6, #d1d5db);
-      color: #111;
+    * {
+      box-sizing: border-box;
+      transition: all 0.3s ease;
     }
+
+    body {
+      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(135deg, #ffe6f0, #e6f0ff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
     h1 {
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
+      font-size: 2.5em;
+      color: #5a189a;
     }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
-      padding: 0 20px;
+
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1000px;
     }
-    .app-icon {
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-      padding: 30px 20px;
-      text-align: center;
+
+    .project {
+      width: 180px;
+      height: 80px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 15px;
+      font-size: 1em;
       cursor: pointer;
+    }
+
+    .toggle-switch {
       position: relative;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 40px;
+      height: 20px;
+      background: #ccc;
+      border-radius: 20px;
+      transition: background 0.3s;
     }
-    .app-icon:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+
+    .toggle-switch::before {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 16px;
+      height: 16px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
     }
-    .hidden {
-      display: none;
+
+    .toggle-switch.active {
+      background: #4ade80;
     }
-    .notification-toggle {
-      margin-top: 10px;
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      background: #007bff;
+
+    .toggle-switch.active::before {
+      transform: translateX(20px);
+    }
+
+    .btn {
+      margin-top: 20px;
+      background: #5a189a;
       color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
       cursor: pointer;
     }
-    .dark-block {
-      position: absolute;
-      background: #111;
-      z-index: 999;
-      pointer-events: none;
-      transition: all 0.5s ease;
+
+    .phantom-fish {
+      position: fixed;
+      bottom: 20px;
+      left: -200px;
+      width: 100px;
+      height: auto;
+      transition: left 5s linear;
+      z-index: 1000;
     }
   </style>
 </head>
+
 <body>
-  <h1>🌀 Useless App Collection 🌀</h1>
-  <div class="grid" id="app-grid">
-    <div class="app-icon" id="click-more-container">
-      <div>🖱️<br><strong>Click For More</strong></div>
-    </div>
-    <div class="app-icon">
-      <div>🔔<br><strong>Random Facts</strong></div>
-      <button class="notification-toggle" onclick="toggleFacts(event)">Toggle</button>
-    </div>
-    <div class="app-icon" onclick="toggleDarkModePartial()">
-      <div>🌙<br><strong>Half Dark Mode</strong></div>
-    </div>
-    <div class="app-icon" onclick="meltEverything()">
-      <div>🫠<br><strong>Melt Everything</strong></div>
-    </div>
-    <div class="app-icon" onclick="reverseText()">
-      <div>🔃<br><strong>Reverse Text</strong></div>
-    </div>
-    <div class="app-icon" onclick="mysteryAction()">
-      <div>❓<br><strong>Mystery Button</strong></div>
-    </div>
-    <div class="app-icon" onclick="tornadoMode()">
-      <div>🌪️<br><strong>Tornado Mode</strong></div>
-    </div>
-    <div class="app-icon" onclick="cleanUI()">
-      <div>🧼<br><strong>Clean UI</strong></div>
-    </div>
-    <div class="app-icon" onclick="ghostCursor()">
-      <div>👻<br><strong>Ghost Cursor</strong></div>
-    </div>
+  <h1>🌀 Useless Mini Projects 🌀</h1>
+  <div class="projects" id="projectsContainer">
+    <div class="project" onclick="toggleProject('fontSwap')">🍪 Font Swap Frenzy <div class="toggle-switch" id="fontSwap"></div></div>
+    <div class="project" onclick="toggleProject('misaligned')">🪓 Misaligned Mode <div class="toggle-switch" id="misaligned"></div></div>
+    <div class="project" onclick="toggleProject('moodColors')">🎨 Mood Swing Colors <div class="toggle-switch" id="moodColors"></div></div>
+    <div class="project" onclick="reverseText()">🔁 Reverse Text</div>
+    <div class="project" onclick="increaseTextSize()">🟣 EASY Read Mode</div>
+    <div class="project" onclick="toggleDarkGroups()">🌗 Half Dark Mode</div>
+    <div class="project" onclick="swapIdentity()">🧠 Identity Frenzy</div>
+    <div class="project" onclick="tornadoSpin()">🌀 Tornado Mode</div>
+    <div class="project" onclick="toggleProject('neonFlashbang')">💡 Neon Flashbang <div class="toggle-switch" id="neonFlashbang"></div></div>
+    <div class="project" onclick="toggleProject('catFacts')">🐱 Cat Facts Overload <div class="toggle-switch" id="catFacts"></div></div>
+    <div class="project" onclick="toggleProject('wackyWobble')">😎 Wacky Wobble <div class="toggle-switch" id="wackyWobble"></div></div>
+    <div class="project" onclick="toggleProject('magneticCursor')">🧲 Magnetic Cursor <div class="toggle-switch" id="magneticCursor"></div></div>
+    <div class="project" onclick="toggleProject('zoomyMode')">🔍 Zoomy Mode <div class="toggle-switch" id="zoomyMode"></div></div>
+    <div class="project" onclick="toggleProject('phantomFish')">🐟 Phantom Fish <div class="toggle-switch" id="phantomFish"></div></div>
   </div>
+  <button class="btn" onclick="resetAll()">🔄 Reset All</button>
+  <button class="btn" id="moreBtn" onclick="moveMoreBtn()">✨ Click for More Mini Projects</button>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Fish_icon.svg/2048px-Fish_icon.svg.png" class="phantom-fish" id="fish" style="display:none;">
 
   <script>
-    document.getElementById("click-more-container").addEventListener("click", moveClickMore);
-    function moveClickMore() {
-      const container = document.getElementById("click-more-container");
-      const x = Math.random() * (window.innerWidth - container.offsetWidth);
-      const y = Math.random() * (window.innerHeight - container.offsetHeight);
-      container.style.position = "fixed";
-      container.style.left = `${x}px`;
-      container.style.top = `${y}px`;
-    }
+    const toggles = {};
 
-    const facts = [
-      "Bananas are curved because they grow towards the sun.",
-      "You can’t hum while holding your nose.",
-      "A group of flamingos is called a flamboyance.",
-      "Scotland's national animal is the unicorn.",
-      "Octopuses have three hearts."
-    ];
-    let factInterval = null;
-    function toggleFacts(event) {
-      event.stopPropagation();
-      if (factInterval) {
-        clearInterval(factInterval);
-        factInterval = null;
-        return;
-      }
-      factInterval = setInterval(() => {
-        const fact = facts[Math.floor(Math.random() * facts.length)];
-        const notification = document.createElement("div");
-        notification.textContent = fact;
-        Object.assign(notification.style, {
-          position: "fixed",
-          bottom: `${Math.random() * 80 + 10}px`,
-          right: `${Math.random() * 80 + 10}px`,
-          background: "#fff",
-          border: "1px solid #000",
-          padding: "10px",
-          borderRadius: "8px",
-          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
-          zIndex: 1000,
-          transition: "opacity 0.5s ease",
-          opacity: 1
+    function toggleProject(id) {
+      const el = document.getElementById(id);
+      const active = el.classList.toggle('active');
+      toggles[id] = active;
+
+      if (id === 'fontSwap') {
+        if (active) {
+          startFontSwap();
+        }
+      } else if (id === 'misaligned') {
+        document.querySelectorAll('.project').forEach(p => {
+          p.style.position = active ? 'relative' : '';
         });
-        document.body.appendChild(notification);
-        setTimeout(() => {
-          notification.style.opacity = 0;
-          setTimeout(() => notification.remove(), 500);
-        }, 2500);
-      }, 4000);
-    }
-
-    function toggleDarkModePartial() {
-      const block = document.createElement("div");
-      const width = Math.random() * (window.innerWidth / 2);
-      const height = Math.random() * (window.innerHeight / 2);
-      const top = Math.random() * (window.innerHeight - height);
-      const left = Math.random() * (window.innerWidth - width);
-      block.className = "dark-block";
-      block.style.width = `${width}px`;
-      block.style.height = `${height}px`;
-      block.style.top = `${top}px`;
-      block.style.left = `${left}px`;
-      document.body.appendChild(block);
-      setTimeout(() => {
-        block.style.opacity = 0;
-        setTimeout(() => block.remove(), 1000);
-      }, 3000);
-    }
-
-    function meltEverything() {
-      const appIcons = document.querySelectorAll(".app-icon");
-      appIcons.forEach(el => {
-        el.style.transition = 'transform 2s ease, opacity 2s ease';
-        el.style.transform = `translateY(${Math.random() * 400 + 100}px) rotate(${Math.random() * 360}deg)`;
-        el.style.opacity = 0;
-      });
+        if (active) misalignLoop();
+      } else if (id === 'moodColors') {
+        if (active) colorCycle();
+      } else if (id === 'catFacts') {
+        if (active) startCatFacts(); else clearFacts();
+      } else if (id === 'neonFlashbang') {
+        if (active) neonFlash();
+      } else if (id === 'wackyWobble') {
+        document.querySelectorAll('.project').forEach(p => {
+          p.style.animation = active ? 'wobble 0.3s infinite' : '';
+        });
+      } else if (id === 'magneticCursor') {
+        if (active) {
+          document.addEventListener('mousemove', magneticMove);
+        } else {
+          document.removeEventListener('mousemove', magneticMove);
+          document.querySelectorAll('.project').forEach(p => p.style.transform = '');
+        }
+      } else if (id === 'zoomyMode') {
+        document.body.style.animation = active ? 'zoomy 2s infinite' : '';
+      } else if (id === 'phantomFish') {
+        const fish = document.getElementById('fish');
+        if (active) {
+          fish.style.display = 'block';
+          fish.style.left = '-200px';
+          setTimeout(() => fish.style.left = '120%');
+        } else {
+          fish.style.display = 'none';
+        }
+      }
     }
 
     function reverseText() {
-      const elements = document.querySelectorAll(".app-icon strong");
-      elements.forEach(el => {
-        el.textContent = el.textContent.split('').reverse().join('');
+      document.querySelectorAll('body *:not(script):not(style)').forEach(el => {
+        if (el.children.length === 0 && el.textContent.trim()) {
+          el.textContent = el.textContent.split('').reverse().join('');
+        }
       });
     }
 
-    function mysteryAction() {
-      const actions = [
-        () => alert("You clicked a mystery button!"),
-        () => document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg)`,
-        () => document.body.style.fontSize = `${Math.random() * 2 + 1}rem`
+    function increaseTextSize() {
+      document.body.style.fontSize = (parseFloat(getComputedStyle(document.body).fontSize) + 2) + 'px';
+    }
+
+    function toggleDarkGroups() {
+      const projects = document.querySelectorAll('.project');
+      const half = Math.floor(projects.length / 2);
+      const group = [...projects].sort(() => 0.5 - Math.random()).slice(0, half);
+      projects.forEach(p => p.style.background = '#fff');
+      group.forEach(p => p.style.background = '#111');
+    }
+
+    function swapIdentity() {
+      const texts = [...document.querySelectorAll('.project')].map(p => p.innerText.split('\n')[0]);
+      const shuffled = texts.sort(() => 0.5 - Math.random());
+      document.querySelectorAll('.project').forEach((p, i) => p.childNodes[0].textContent = shuffled[i]);
+    }
+
+    function tornadoSpin() {
+      document.querySelectorAll('.project').forEach(p => {
+        p.style.position = 'absolute';
+        p.style.top = Math.random() * window.innerHeight + 'px';
+        p.style.left = Math.random() * window.innerWidth + 'px';
+        p.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+      });
+    }
+
+    function resetAll() {
+      location.reload();
+    }
+
+    function moveMoreBtn() {
+      const btn = document.getElementById('moreBtn');
+      btn.style.position = 'absolute';
+      btn.style.left = Math.random() * 80 + '%';
+      btn.style.top = Math.random() * 80 + '%';
+    }
+
+    function misalignLoop() {
+      if (!toggles['misaligned']) return;
+      document.querySelectorAll('.project').forEach(p => {
+        p.style.top = Math.random() * 30 - 15 + 'px';
+        p.style.left = Math.random() * 30 - 15 + 'px';
+      });
+      setTimeout(misalignLoop, 500);
+    }
+
+    function colorCycle() {
+      if (!toggles['moodColors']) return;
+      document.querySelectorAll('.project').forEach(p => {
+        p.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      });
+      setTimeout(colorCycle, 1000);
+    }
+
+    function neonFlash() {
+      if (!toggles['neonFlashbang']) return;
+      document.body.style.background = '#' + Math.floor(Math.random() * 16777215).toString(16);
+      setTimeout(neonFlash, 200);
+    }
+
+    function startFontSwap() {
+      const fonts = ['cursive', 'monospace', 'fantasy', 'serif', 'sans-serif'];
+      const interval = setInterval(() => {
+        if (!toggles['fontSwap']) {
+          clearInterval(interval);
+          return;
+        }
+        document.body.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+      }, 500);
+    }
+
+    function startCatFacts() {
+      const facts = [
+        "Cats sleep 70% of their lives!",
+        "A group of cats is called a clowder.",
+        "Cats can rotate their ears 180 degrees.",
+        "The oldest cat lived to 38!",
+        "Cats have five toes on their front paws, four on the back.",
+        "They can jump up to six times their length!",
+        "Cats have over 20 muscles controlling their ears."
       ];
-      const random = Math.floor(Math.random() * actions.length);
-      actions[random]();
+      const factInterval = setInterval(() => {
+        if (!toggles['catFacts']) {
+          clearInterval(factInterval);
+          return;
+        }
+        const div = document.createElement('div');
+        div.textContent = facts[Math.floor(Math.random() * facts.length)];
+        div.style.position = 'fixed';
+        div.style.top = Math.random() * 100 + '%';
+        div.style.left = Math.random() * 100 + '%';
+        div.style.background = '#fff';
+        div.style.padding = '5px 10px';
+        div.style.border = '1px solid #ccc';
+        div.style.zIndex = '999';
+        document.body.appendChild(div);
+        setTimeout(() => div.remove(), 4000);
+      }, 800);
     }
 
-    function tornadoMode() {
-      const icons = document.querySelectorAll(".app-icon");
-      icons.forEach(icon => {
-        icon.style.transition = "transform 0.2s";
-        const angle = Math.random() * 720;
-        icon.style.transform = `rotate(${angle}deg)`;
-        setTimeout(() => {
-          icon.style.transform = "rotate(0deg)";
-        }, 2000);
+    function clearFacts() {
+      document.querySelectorAll('body > div').forEach(d => {
+        if (d.textContent.includes('Cats') || d.textContent.includes('cat')) d.remove();
       });
     }
 
-    function cleanUI() {
-      const wipe = document.createElement("div");
-      Object.assign(wipe.style, {
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        background: "rgba(255,255,255,0.8)",
-        zIndex: 999,
-        animation: "wipe 3s ease forwards"
+    function magneticMove(e) {
+      document.querySelectorAll('.project').forEach(p => {
+        const rect = p.getBoundingClientRect();
+        const dx = (e.clientX - (rect.left + rect.width / 2)) / 50;
+        const dy = (e.clientY - (rect.top + rect.height / 2)) / 50;
+        p.style.transform = `translate(${dx}px, ${dy}px)`;
       });
-      document.body.appendChild(wipe);
-      setTimeout(() => wipe.remove(), 3000);
-    }
-
-    function ghostCursor() {
-      const ghost = document.createElement("div");
-      ghost.textContent = "👻";
-      Object.assign(ghost.style, {
-        position: "fixed",
-        left: `${Math.random() * window.innerWidth}px`,
-        top: `${Math.random() * window.innerHeight}px`,
-        fontSize: "24px",
-        zIndex: 999
-      });
-      document.body.appendChild(ghost);
-      setTimeout(() => ghost.remove(), 2000);
     }
   </script>
+  <style>
+    @keyframes wobble {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(-5deg); }
+      75% { transform: rotate(3deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes zoomy {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
 </body>
+
 </html>
