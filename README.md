@@ -41,7 +41,7 @@ This is the main interface of Useless Web. Each tile represents a completely poi
 ![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
 A closer look at one of the mini-projects: Cat Facts Overload. Once toggled on, the screen fills with random, weird cat facts. It doesn’t stop until you turn it off. Why? No reason — that's the whole point.
 
-![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
+![image alt](https://github.com/ken-joe/useless/blob/af447f3f92d0607a6ba9915137ad83bb9512733c/Opera%20Snapshot_2025-08-02_221547_ken-joe.github.io.png)
 Here's what happens when you turn everything on. Fonts keep swapping, colors go wild, icons spin and wobble, text is reversed, and cat facts pop up everywhere. It's digital mayhem — exactly as intended.
 
 
