@@ -30,26 +30,19 @@ For Software:
 - None (we handcrafted the absurdity ourselves)]
 - VS Code, ChatGPT, Proplexity
 
-### Implementation
-For Software:
-# Installation
-[commands]
-
-# Run
-[commands]
 
 ### Project Documentation
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
+This is the main interface of Useless Web. Each tile represents a completely pointless mini-project — some with toggle switches, others with chaotic effects waiting to be triggered. It's neat now… but it won't stay that way for long.
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
+A closer look at one of the mini-projects: Cat Facts Overload. Once toggled on, the screen fills with random, weird cat facts. It doesn’t stop until you turn it off. Why? No reason — that's the whole point.
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+![image alt](https://github.com/ken-joe/useless/blob/efd6460c2e1ea81e3bb41deb3812cc1e7be28f08/Opera%20Snapshot_2025-08-02_221235_ken-joe.github.io.png)
+Here's what happens when you turn everything on. Fonts keep swapping, colors go wild, icons spin and wobble, text is reversed, and cat facts pop up everywhere. It's digital mayhem — exactly as intended.
 
 
 ## Team Contributions
