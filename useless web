@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Useless Mini Projects</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(to bottom right, #f3f4f6, #d1d5db);
+      color: #111;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+    }
+    .app-icon {
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .app-icon:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+    }
+    .hidden {
+      display: none;
+    }
+    .notification-toggle {
+      margin-top: 10px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+    .dark-block {
+      position: absolute;
+      background: #111;
+      z-index: 999;
+      pointer-events: none;
+      transition: all 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌀 Useless App Collection 🌀</h1>
+  <div class="grid" id="app-grid">
+    <div class="app-icon" id="click-more-container">
+      <div>🖱️<br><strong>Click For More</strong></div>
+    </div>
+    <div class="app-icon">
+      <div>🔔<br><strong>Random Facts</strong></div>
+      <button class="notification-toggle" onclick="toggleFacts(event)">Toggle</button>
+    </div>
+    <div class="app-icon" onclick="toggleDarkModePartial()">
+      <div>🌙<br><strong>Half Dark Mode</strong></div>
+    </div>
+    <div class="app-icon" onclick="meltEverything()">
+      <div>🫠<br><strong>Melt Everything</strong></div>
+    </div>
+    <div class="app-icon" onclick="reverseText()">
+      <div>🔃<br><strong>Reverse Text</strong></div>
+    </div>
+    <div class="app-icon" onclick="mysteryAction()">
+      <div>❓<br><strong>Mystery Button</strong></div>
+    </div>
+    <div class="app-icon" onclick="tornadoMode()">
+      <div>🌪️<br><strong>Tornado Mode</strong></div>
+    </div>
+    <div class="app-icon" onclick="cleanUI()">
+      <div>🧼<br><strong>Clean UI</strong></div>
+    </div>
+    <div class="app-icon" onclick="ghostCursor()">
+      <div>👻<br><strong>Ghost Cursor</strong></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("click-more-container").addEventListener("click", moveClickMore);
+    function moveClickMore() {
+      const container = document.getElementById("click-more-container");
+      const x = Math.random() * (window.innerWidth - container.offsetWidth);
+      const y = Math.random() * (window.innerHeight - container.offsetHeight);
+      container.style.position = "fixed";
+      container.style.left = `${x}px`;
+      container.style.top = `${y}px`;
+    }
+
+    const facts = [
+      "Bananas are curved because they grow towards the sun.",
+      "You can’t hum while holding your nose.",
+      "A group of flamingos is called a flamboyance.",
+      "Scotland's national animal is the unicorn.",
+      "Octopuses have three hearts."
+    ];
+    let factInterval = null;
+    function toggleFacts(event) {
+      event.stopPropagation();
+      if (factInterval) {
+        clearInterval(factInterval);
+        factInterval = null;
+        return;
+      }
+      factInterval = setInterval(() => {
+        const fact = facts[Math.floor(Math.random() * facts.length)];
+        const notification = document.createElement("div");
+        notification.textContent = fact;
+        Object.assign(notification.style, {
+          position: "fixed",
+          bottom: `${Math.random() * 80 + 10}px`,
+          right: `${Math.random() * 80 + 10}px`,
+          background: "#fff",
+          border: "1px solid #000",
+          padding: "10px",
+          borderRadius: "8px",
+          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+          zIndex: 1000,
+          transition: "opacity 0.5s ease",
+          opacity: 1
+        });
+        document.body.appendChild(notification);
+        setTimeout(() => {
+          notification.style.opacity = 0;
+          setTimeout(() => notification.remove(), 500);
+        }, 2500);
+      }, 4000);
+    }
+
+    function toggleDarkModePartial() {
+      const block = document.createElement("div");
+      const width = Math.random() * (window.innerWidth / 2);
+      const height = Math.random() * (window.innerHeight / 2);
+      const top = Math.random() * (window.innerHeight - height);
+      const left = Math.random() * (window.innerWidth - width);
+      block.className = "dark-block";
+      block.style.width = `${width}px`;
+      block.style.height = `${height}px`;
+      block.style.top = `${top}px`;
+      block.style.left = `${left}px`;
+      document.body.appendChild(block);
+      setTimeout(() => {
+        block.style.opacity = 0;
+        setTimeout(() => block.remove(), 1000);
+      }, 3000);
+    }
+
+    function meltEverything() {
+      const appIcons = document.querySelectorAll(".app-icon");
+      appIcons.forEach(el => {
+        el.style.transition = 'transform 2s ease, opacity 2s ease';
+        el.style.transform = `translateY(${Math.random() * 400 + 100}px) rotate(${Math.random() * 360}deg)`;
+        el.style.opacity = 0;
+      });
+    }
+
+    function reverseText() {
+      const elements = document.querySelectorAll(".app-icon strong");
+      elements.forEach(el => {
+        el.textContent = el.textContent.split('').reverse().join('');
+      });
+    }
+
+    function mysteryAction() {
+      const actions = [
+        () => alert("You clicked a mystery button!"),
+        () => document.body.style.transform = `rotate(${Math.random() * 10 - 5}deg)`,
+        () => document.body.style.fontSize = `${Math.random() * 2 + 1}rem`
+      ];
+      const random = Math.floor(Math.random() * actions.length);
+      actions[random]();
+    }
+
+    function tornadoMode() {
+      const icons = document.querySelectorAll(".app-icon");
+      icons.forEach(icon => {
+        icon.style.transition = "transform 0.2s";
+        const angle = Math.random() * 720;
+        icon.style.transform = `rotate(${angle}deg)`;
+        setTimeout(() => {
+          icon.style.transform = "rotate(0deg)";
+        }, 2000);
+      });
+    }
+
+    function cleanUI() {
+      const wipe = document.createElement("div");
+      Object.assign(wipe.style, {
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        background: "rgba(255,255,255,0.8)",
+        zIndex: 999,
+        animation: "wipe 3s ease forwards"
+      });
+      document.body.appendChild(wipe);
+      setTimeout(() => wipe.remove(), 3000);
+    }
+
+    function ghostCursor() {
+      const ghost = document.createElement("div");
+      ghost.textContent = "👻";
+      Object.assign(ghost.style, {
+        position: "fixed",
+        left: `${Math.random() * window.innerWidth}px`,
+        top: `${Math.random() * window.innerHeight}px`,
+        fontSize: "24px",
+        zIndex: 999
+      });
+      document.body.appendChild(ghost);
+      setTimeout(() => ghost.remove(), 2000);
+    }
+  </script>
+</body>
+</html>
